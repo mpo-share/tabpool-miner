@@ -20,9 +20,23 @@ tabpool-miner.cmd --address arg1...
 
 算力偏低時，請先關閉其他佔用顯示記憶體的程式。瀏覽器的 ARG 礦工頁即使按了停止，仍會佔著顯示記憶體。
 
-## Linux
+## Linux x64（實驗性）
 
-Linux 版尚未驗證，目前沒有提供下載。
+Linux 版只用軟體 Vulkan 跑過完整流程，還沒在真實 GPU 上驗證。
+
+```sh
+tar -xzf tabpool-miner-<版本>-linux-x64.tar.gz
+cd tabpool-miner
+./tabpool-miner.sh --address arg1...
+```
+
+需要 glibc 2.34 與 GCC 12 的 libstdc++（Ubuntu 22.04、Debian 12 或更新），以及 Vulkan loader 與驅動。Ubuntu／Debian 可以這樣安裝，NVIDIA 顯示卡則改用官方驅動，不裝 `mesa-vulkan-drivers`：
+
+```sh
+sudo apt install libvulkan1 mesa-vulkan-drivers
+```
+
+啟動時請看 `GPU:` 那一行。如果顯示 `llvmpipe`，代表沒有用到顯示卡，而是用 CPU 模擬，算力會非常低，請安裝顯示卡驅動。
 
 ## 參數
 
