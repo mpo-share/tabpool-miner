@@ -2,8 +2,6 @@
 
 這個 repo 只放發佈檔，請到 [Releases](https://github.com/mpo-share/tabpool-miner/releases) 下載。只支援挖 ARG，需要 GPU。
 
-> 目前還沒有發佈任何版本。
-
 ## Windows x64
 
 1. 下載 `tabpool-miner-<版本>-win-x64.zip` 並解壓，`runtime` 資料夾要和 `tabpool-miner.cmd` 放在一起。
@@ -18,21 +16,13 @@ tabpool-miner.cmd --address arg1...
 
 需要安裝 [Microsoft Visual C++ 可轉散發套件](https://aka.ms/vs/17/release/vc_redist.x64.exe)。
 
-## Linux x64（實驗性）
+第一次執行要等幾分鐘調整 lane 數，算力才會穩定。
 
-Linux 版尚未在真實 GPU 上驗證過。
+算力偏低時，請先關閉其他佔用顯示記憶體的程式。瀏覽器的 ARG 礦工頁即使按了停止，仍會佔著顯示記憶體。
 
-```sh
-tar -xzf tabpool-miner-<版本>-linux-x64.tar.gz
-cd tabpool-miner
-./tabpool-miner.sh --address arg1...
-```
+## Linux
 
-需要 glibc 2.34 與 GCC 12 的 libstdc++（Ubuntu 22.04、Debian 12 或更新），以及 Vulkan loader 與驅動。Ubuntu／Debian 可以這樣安裝，NVIDIA 顯示卡則改用官方驅動，不裝 `mesa-vulkan-drivers`：
-
-```sh
-sudo apt install libvulkan1 mesa-vulkan-drivers
-```
+Linux 版尚未驗證，目前沒有提供下載。
 
 ## 參數
 
