@@ -10,11 +10,11 @@ Not sure which one? Use the first file that matches your computer.
 
 | Your computer | Download this |
 | --- | --- |
-| Windows 10 / 11 | [tabpool-brc-miner-1.0.0-win-x64.zip](https://github.com/mpo-share/tabpool-miner/releases/download/brc-v1.0.0/tabpool-brc-miner-1.0.0-win-x64.zip) |
+| Windows 10 / 11 | [tabpool-brc-miner-1.0.0-win-x64-native.zip](https://github.com/mpo-share/tabpool-miner/releases/download/brc-v1.0.0/tabpool-brc-miner-1.0.0-win-x64-native.zip) |
 | Mac with Apple M1, M2, M3 or newer | [tabpool-brc-miner-1.0.0-mac-arm64.tar.gz](https://github.com/mpo-share/tabpool-miner/releases/download/brc-v1.0.0/tabpool-brc-miner-1.0.0-mac-arm64.tar.gz) |
 | Mac with an Intel processor | [tabpool-brc-miner-1.0.0-mac-x64.tar.gz](https://github.com/mpo-share/tabpool-miner/releases/download/brc-v1.0.0/tabpool-brc-miner-1.0.0-mac-x64.tar.gz) |
 | Linux (x86-64 PC or server) | [tabpool-brc-miner-1.0.0-linux-x64.tar.gz](https://github.com/mpo-share/tabpool-miner/releases/download/brc-v1.0.0/tabpool-brc-miner-1.0.0-linux-x64.tar.gz) |
-| Windows, advanced (see [Faster Windows build](#faster-windows-build)) | [tabpool-brc-miner-1.0.0-win-x64-native.zip](https://github.com/mpo-share/tabpool-miner/releases/download/brc-v1.0.0/tabpool-brc-miner-1.0.0-win-x64-native.zip) |
+| Windows, if your antivirus blocks the file above (see [Antivirus warnings](#antivirus-warnings)) | [tabpool-brc-miner-1.0.0-win-x64.zip](https://github.com/mpo-share/tabpool-miner/releases/download/brc-v1.0.0/tabpool-brc-miner-1.0.0-win-x64.zip) |
 
 Which Mac do I have? Apple menu → **About This Mac**. "Chip: Apple M…" means Apple silicon; "Processor: Intel" means Intel.
 
@@ -26,12 +26,12 @@ Older versions and `SHA256SUMS.txt` are on the [Releases](https://github.com/mpo
 
 1. Find the downloaded `.zip` in your Downloads folder.
 2. **Right-click it → Extract All → Extract.** Do not run anything from inside the zip without extracting: the miner cannot save your address there, and Windows may block it.
-3. Open the extracted `tabpool-brc-miner` folder and double-click **`tabpool-brc-miner.cmd`**.
+3. Open the extracted `tabpool-brc-miner` folder and double-click **`tabpool-brc-miner.exe`**.
    - If Windows shows "Windows protected your PC", click **More info → Run anyway**.
 4. A black window asks for your BRC payout address. Paste it (right-click pastes in that window) and press Enter.
 5. Mining starts. Leave the window open. To stop, press **Ctrl+C** or close the window.
 
-Next time, just double-click `tabpool-brc-miner.cmd` again. Your address is remembered in `config.json` in the same folder.
+Next time, just double-click `tabpool-brc-miner.exe` again. Your address is remembered in `config.json` in the same folder.
 
 ### macOS
 
@@ -99,7 +99,7 @@ The easiest way to change settings is to edit `config.json` in the miner folder 
 | `worker` | `--worker` | A name for this computer on the pool, so you can tell several machines apart. Letters, digits, `.`, `_`, `-`, up to 32 characters. |
 | `pool` | `--pool` | Leave this out unless you were told to use a different pool. |
 
-Command-line options win over `config.json`, for example `tabpool-brc-miner.cmd --threads 4`. Run with `--help` to list every option.
+Command-line options win over `config.json`, for example `tabpool-brc-miner.exe --threads 4`. Run with `--help` to list every option.
 
 - **Wrong address?** Open `config.json` and fix it, or delete `config.json` and start the miner again to be asked afresh.
 - **Computer feels slow while mining?** Set `threads` to about half your CPU threads, or lower `cpuPower`.
@@ -109,7 +109,7 @@ Command-line options win over `config.json`, for example `tabpool-brc-miner.cmd 
 
 | Problem | Fix |
 | --- | --- |
-| The window opens and closes immediately (Windows) | Make sure you extracted the zip first. If it still closes, click the folder's address bar, type `cmd`, press Enter, then run `tabpool-brc-miner.cmd` there to read the error. |
+| The window opens and closes immediately (Windows) | Make sure you extracted the zip first. If it still closes, click the folder's address bar, type `cmd`, press Enter, then run `tabpool-brc-miner.exe` there to read the error. |
 | "A BRC address is 64 hexadecimal characters" | You pasted something else. Check for a `0x` prefix, spaces, or a missing character. Use the public address from your BRC wallet. |
 | "... is not valid JSON" | `config.json` has a typo. Text values need double quotes, numbers do not, and items are separated by commas. Or delete the file and start again. |
 | Stuck at "Connecting" or "Connection lost" | Check your internet connection. The miner retries every 5 seconds on its own. A company or school network may block it. |
@@ -120,16 +120,12 @@ Command-line options win over `config.json`, for example `tabpool-brc-miner.cmd 
 
 ## Antivirus warnings
 
-Antivirus programs and browsers flag almost every crypto miner as "CoinMiner" or "potentially unwanted", whatever its source. The default Windows download runs the miner with the official, signed Node.js runtime (`runtime/node.exe`), which is rarely blocked.
+Antivirus programs and browsers flag almost every crypto miner as "CoinMiner" or "potentially unwanted", whatever its source. The Windows download is a single program, `tabpool-brc-miner.exe`, that is not code-signed, so your browser may refuse to download it or Windows Defender may delete it.
+
+If that happens, either add an exclusion for the miner folder in your antivirus, or use the **Node.js build** instead: download `tabpool-brc-miner-1.0.0-win-x64.zip`, extract it, and double-click `tabpool-brc-miner.cmd`. It runs the same miner with the official, signed Node.js runtime (`runtime/node.exe`), which is rarely blocked, and reads the same `config.json`. It is a little slower.
 
 You can check that your download is the published file by comparing its SHA-256 with `SHA256SUMS.txt` on the Releases page: `certutil -hashfile <file> SHA256` on Windows, `shasum -a 256 <file>` on macOS, `sha256sum <file>` on Linux.
 
-## Faster Windows build
-
-`win-x64-native.zip` contains a single native program, `tabpool-brc-miner.exe`. In our tests it is a little faster: about 4% with all threads, about 15% with half your threads. It is not code-signed, so **your browser may refuse to download it and Windows Defender will likely delete it**. Use it only if you are comfortable adding an exclusion in your antivirus; otherwise use the normal Windows download.
-
-Usage is the same: extract it, then double-click `tabpool-brc-miner.exe`. It reads the same `config.json`, so you can copy yours over.
-
 ## Licences
 
-The Windows and macOS downloads include Node.js; its licence is in `runtime/LICENSE`. The Linux and native Windows programs list their third-party licences in `THIRD-PARTY-LICENSES.txt` and print them with `--licenses`.
+The Windows and Linux programs list their third-party licences in `THIRD-PARTY-LICENSES.txt` and print them with `--licenses`. The macOS downloads and the Windows Node.js build include Node.js; its licence is in `runtime/LICENSE`.
