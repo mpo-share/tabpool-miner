@@ -122,7 +122,7 @@ Command-line options win over `config.json`, for example `tabpool-brc-miner.exe 
 
 Antivirus programs and browsers flag almost every crypto miner as "CoinMiner" or "potentially unwanted", whatever its source. The Windows download is a single program, `tabpool-brc-miner.exe`, that is not code-signed, so your browser may refuse to download it or Windows Defender may delete it.
 
-If that happens, either add an exclusion for the miner folder in your antivirus, or use the **Node.js build** instead: download `tabpool-brc-miner-1.0.0-win-x64.zip`, extract it, and double-click `tabpool-brc-miner.cmd`. It runs the same miner with the official, signed Node.js runtime (`runtime/node.exe`), which is rarely blocked, and reads the same `config.json`. It is a little slower.
+If that happens, either add an exclusion for the miner folder in your antivirus, or use the **Node.js build** instead: download `tabpool-brc-miner-1.0.0-win-x64.zip`, extract it, and double-click `tabpool-brc-miner.cmd`. It runs the same miner with the official, signed Node.js runtime (`runtime/node.exe`), which is rarely blocked, and reads the same `config.json`, but **it mines more slowly than the native program**.
 
 You can check that your download is the published file by comparing its SHA-256 with `SHA256SUMS.txt` on the Releases page: `certutil -hashfile <file> SHA256` on Windows, `shasum -a 256 <file>` on macOS, `sha256sum <file>` on Linux.
 
