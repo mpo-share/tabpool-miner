@@ -45,7 +45,7 @@ Run with `--help` for the full list.
 | Option | Description |
 | --- | --- |
 | `-a, --address <address>` | BRC payout address |
-| `-t, --threads <count>` | Mining threads, default half of the logical cores |
+| `-t, --threads <count>` | Mining threads, default all logical cores |
 | `--cpu-power <percent>` | CPU duty cycle per thread, 1-100, default 100 |
 | `--worker <name>` | Worker name shown by the pool |
 | `--pool <url>` | Use a different pool |
