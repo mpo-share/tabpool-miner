@@ -7,7 +7,7 @@ Supports BRC (BrowserCoin) only and mines on the CPU. Each archive bundles its o
 ## Windows x64
 
 1. Download `tabpool-brc-miner-<version>-win-x64.zip` and extract it. Keep the `runtime` and `app` folders next to `tabpool-brc-miner.cmd`.
-2. Double-click `tabpool-brc-miner.cmd` and enter your BRC payout address. It is remembered for next time.
+2. Double-click `tabpool-brc-miner.cmd` and enter your BRC payout address. It is saved to `config.json` in the same folder.
 3. Press Ctrl+C to stop.
 
 From cmd or PowerShell:
@@ -49,5 +49,20 @@ Run with `--help` for the full list.
 | `--cpu-power <percent>` | CPU duty cycle per thread, 1-100, default 100 |
 | `--worker <name>` | Worker name shown by the pool |
 | `--pool <url>` | Use a different pool |
+
+## config.json
+
+Settings can also live in `config.json` next to the launcher. Command-line options override it.
+
+```json
+{
+  "address": "<your BRC address>",
+  "threads": 8,
+  "cpuPower": 100,
+  "worker": "my-pc"
+}
+```
+
+`pool` is also accepted. Keep `config.json` when you update to a new version.
 
 Status prints every 10 seconds. Each release includes `SHA256SUMS.txt`: check it with `sha256sum -c SHA256SUMS.txt --ignore-missing` on Linux or `shasum -a 256 <file>` on macOS. The bundled Node.js licence is in `runtime/LICENSE`.
