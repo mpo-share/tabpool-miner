@@ -2,20 +2,18 @@
 
 This repository holds release files only. Download from [Releases](https://github.com/mpo-share/tabpool-miner/releases).
 
-Supports BRC (BrowserCoin) only and mines on the CPU. Windows and Linux get a single native program; macOS archives bundle their own runtime. There is nothing else to install. Use your public BRC address (64 hexadecimal characters), never a private key or seed phrase.
+Supports BRC (BrowserCoin) only and mines on the CPU. Linux gets a single native program; Windows and macOS archives bundle their own runtime. There is nothing else to install. Use your public BRC address (64 hexadecimal characters), never a private key or seed phrase.
 
 ## Windows x64
 
-1. Download `tabpool-brc-miner-<version>-win-x64.exe` and put it in its own folder.
-2. Double-click it and enter your BRC payout address. It is saved to `config.json` in the same folder.
+1. Download `tabpool-brc-miner-<version>-win-x64.zip`, right-click it and choose **Extract All**.
+2. Double-click `tabpool-brc-miner.cmd` and enter your BRC payout address. It is saved to `config.json` in the same folder.
 3. Press Ctrl+C to stop.
 
-If SmartScreen warns about an unrecognised app, choose **More info** then **Run anyway**.
-
-From cmd or PowerShell:
+From cmd or PowerShell, in the extracted folder:
 
 ```cmd
-tabpool-brc-miner-<version>-win-x64.exe --address <your BRC address>
+tabpool-brc-miner.cmd --address <your BRC address>
 ```
 
 ## macOS (Apple silicon or Intel)
@@ -67,4 +65,4 @@ Settings can also live in `config.json` next to the program (next to `tabpool-br
 
 `pool` is also accepted. Keep `config.json` when you update to a new version.
 
-Status prints every 10 seconds. Each release includes `SHA256SUMS.txt`: check it with `sha256sum -c SHA256SUMS.txt --ignore-missing` on Linux or `shasum -a 256 <file>` on macOS. The macOS archives bundle Node.js; its licence is in `runtime/LICENSE`.
+Status prints every 10 seconds. Each release includes `SHA256SUMS.txt`: check it with `sha256sum -c SHA256SUMS.txt --ignore-missing` on Linux or `shasum -a 256 <file>` on macOS. The Windows and macOS archives bundle Node.js; its licence is in `runtime/LICENSE`. The Linux program's third-party licences are in `THIRD-PARTY-LICENSES.txt` and also print with `--licenses`.
