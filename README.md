@@ -4,6 +4,31 @@ This repository holds release files only. Download from [Releases](https://githu
 
 Supports BRC (BrowserCoin) only and mines on the CPU. Linux gets a single native program; Windows and macOS archives bundle their own runtime. There is nothing else to install. Use your public BRC address (64 hexadecimal characters), never a private key or seed phrase.
 
+## Download
+
+Current version: 1.0.0. Other versions are on the [Releases](https://github.com/mpo-share/tabpool-miner/releases) page.
+
+| System | File |
+| --- | --- |
+| Windows x64 | [tabpool-brc-miner-1.0.0-win-x64.zip](https://github.com/mpo-share/tabpool-miner/releases/download/brc-v1.0.0/tabpool-brc-miner-1.0.0-win-x64.zip) |
+| macOS Apple silicon (M1 or newer) | [tabpool-brc-miner-1.0.0-mac-arm64.tar.gz](https://github.com/mpo-share/tabpool-miner/releases/download/brc-v1.0.0/tabpool-brc-miner-1.0.0-mac-arm64.tar.gz) |
+| macOS Intel | [tabpool-brc-miner-1.0.0-mac-x64.tar.gz](https://github.com/mpo-share/tabpool-miner/releases/download/brc-v1.0.0/tabpool-brc-miner-1.0.0-mac-x64.tar.gz) |
+| Linux x64 | [tabpool-brc-miner-1.0.0-linux-x64.tar.gz](https://github.com/mpo-share/tabpool-miner/releases/download/brc-v1.0.0/tabpool-brc-miner-1.0.0-linux-x64.tar.gz) |
+| Checksums | [SHA256SUMS.txt](https://github.com/mpo-share/tabpool-miner/releases/download/brc-v1.0.0/SHA256SUMS.txt) |
+
+From a terminal instead of the browser:
+
+```powershell
+# Windows PowerShell
+Invoke-WebRequest https://github.com/mpo-share/tabpool-miner/releases/download/brc-v1.0.0/tabpool-brc-miner-1.0.0-win-x64.zip -OutFile tabpool-brc-miner-1.0.0-win-x64.zip
+Expand-Archive tabpool-brc-miner-1.0.0-win-x64.zip -DestinationPath .
+```
+
+```sh
+# Linux (use mac-arm64 or mac-x64 on macOS)
+curl -LO https://github.com/mpo-share/tabpool-miner/releases/download/brc-v1.0.0/tabpool-brc-miner-1.0.0-linux-x64.tar.gz
+```
+
 ## Windows x64
 
 1. Download `tabpool-brc-miner-<version>-win-x64.zip`, right-click it and choose **Extract All**.
