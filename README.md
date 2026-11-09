@@ -36,6 +36,8 @@ cd tabpool-brc-miner
 ./tabpool-brc-miner --address <your BRC address>
 ```
 
+Or edit the address in `start.sh` and run `./start.sh`.
+
 The program is statically linked and runs on any x86-64 Linux distribution.
 
 ## Options
